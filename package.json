@@ -8,7 +8,9 @@
     "build": "vite build",
     "preview": "vite preview",
     "test": "node --test evaluation",
-    "evaluate": "npm test"
+    "evaluate": "npm test",
+    "obfuscate": "javascript-obfuscator dist/assets --output dist/assets --compact true --control-flow-flattening true --control-flow-flattening-threshold 0.35 --dead-code-injection false --disable-console-output true --identifier-names-generator hexadecimal --rename-globals false --self-defending false --simplify true --split-strings true --split-strings-chunk-length 8 --string-array true --string-array-encoding base64 --string-array-threshold 0.75 --transform-object-keys true",
+    "build:protected": "npm run build && npm run obfuscate"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
+    "javascript-obfuscator": "^4.1.1",
     "vite": "^5.4.14",
     "vite-plugin-pwa": "^0.20.5"
   }
